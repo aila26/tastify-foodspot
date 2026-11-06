@@ -1,13 +1,17 @@
 <?php
 $host = "localhost";
-$user = "root";
-$pass = "";
 $db = "foodspot";
-$con = mysqli_connect($host, $user, $pass, $db);
-if (!$con) {
-    die("gagal mengkoneksikan database: " . mysqli_connect_error());
+$user = "root";
+$password = "";
+$options = [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, //Untuk memberitahu informasi error
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, //mengembalikan array assosiatif
+    PDO::ATTR_EMULATE_PREPARES => false //mengatur siapa yang eksekusi sistem prepare
+];
+$dsn = "mysql:host=$host;dbname=$db;charset=utf8mb4";
+try {
+    $pdo = new PDO($dsn, $user, $password);
+} catch (PDOException $error) {
+    die("Koneksi ke database gagal: " . $error->getMessage());
 }
-
-
-
 ?>
