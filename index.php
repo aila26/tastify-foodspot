@@ -155,18 +155,11 @@ $foods = getAllFoods();
                                     <?php echo htmlspecialchars($food['rating']); ?>
                                 </span>
                             </div>
-
                         </div>
-
                     </div>
-
                 <?php endforeach; ?>
-
             </div>
-
         </section>
-
     </div>
-
 </body>
 </html>
